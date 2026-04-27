@@ -36,27 +36,27 @@ FinanceGPT VN là chatbot tài chính dạng **streaming SSE** (Server-Sent Even
 Hệ thống bao gồm **4 agent chuyên biệt** phối hợp theo pipeline bất đồng bộ:
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                  GolineOrchestrator                      │
-│                                                          │
-│  ┌─────────────┐    ┌──────────────┐                    │
-│  │ RouterAgent  │───▶│ExecutionAgent│                    │
-│  │             │    │              │                    │
-│  │ • Phân tích │    │ • Gọi tool   │                    │
-│  │   intent    │    │   song song  │                    │
-│  │ • Lập kế    │    │ • Cache 10   │                    │
-│  │   hoạch     │    │   phút       │                    │
-│  └─────────────┘    └──────┬───────┘                    │
-│                             │                            │
-│  ┌─────────────┐    ┌──────▼───────┐                    │
-│  │SynthesisAgent│◀──│ AdvisorAgent │                    │
-│  │             │    │              │                    │
-│  │ • Định dạng │    │ • Đánh giá   │                    │
-│  │   câu trả   │    │   Bullish /  │                    │
-│  │   lời theo  │    │   Bearish /  │                    │
-│  │   intent    │    │   Neutral    │                    │
-│  └─────────────┘    └──────────────┘                    │
-└─────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+│                  Orchestrator              │
+│                                            │
+│  ┌──────────────┐    ┌──────────────┐      │
+│  │ RouterAgent  │──▶│ExecutionAgent│      │
+│  │              │    │              │      │
+│  │ • Phân tích  │    │ • Gọi tool   │      │
+│  │   intent     │    │   song song  │      │
+│  │ • Lập kế     │    │ • Cache 10   │      │
+│  │   hoạch      │    │   phút       │      │
+│  └──────────────┘    └──────┬───────┘      │
+│                             │              │
+│  ┌──────────────┐    ┌──────▼───────┐      │
+│  │SynthesisAgent│◀──│ AdvisorAgent │      │
+│  │              │    │              │      │
+│  │ • Định dạng  │    │ • Đánh giá   │      │
+│  │   câu trả    │    │   Bullish /  │      │
+│  │   lời theo   │    │   Bearish /  │      │
+│  │   intent     │    │   Neutral    │      │
+│  └──────────────┘    └──────────────┘      │
+└────────────────────────────────────────────┘
 ```
 
 ### Luồng xử lý một câu hỏi
@@ -181,8 +181,8 @@ Single-page app thuần HTML/CSS/JS (không framework):
 ### 1. Clone và tạo môi trường ảo
 
 ```bash
-git clone <repo_url>
-cd financegpt-vn
+git clone https://github.com/DungPhanHoangg05/FinanceGPT-VN
+cd FinanceGPT-VN
 
 python -m venv .venv
 source .venv/bin/activate        # Linux/Mac
